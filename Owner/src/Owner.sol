@@ -16,7 +16,12 @@ contract OnlyOwner {
         magicNumber = _magicNumber;
     }
 
-    function updateMagicNumber(uint256 _number) public {
+    function updateMagicNumber(uint256 _number) public onlyOwner{
         magicNumber = _number;
+    }
+
+    modifier onlyOwner {
+        require(msg.sender==owner, "not");
+        _;
     }
 }

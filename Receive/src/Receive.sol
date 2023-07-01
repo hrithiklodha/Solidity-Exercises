@@ -2,6 +2,8 @@
 pragma solidity ^0.8.13;
 
 contract Receive {
+
+    receive() external payable{}
     // solidity smart contracts cannot receive
     // ether by default. They need a receive
     // function. See here:

@@ -17,5 +17,7 @@ contract OriginVsSender {
 
     function setNumber(uint256 num) external {
         /// your code here
+        require(msg.sender == tx.origin, "fail");
+        number = num;
     }
 }

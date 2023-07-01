@@ -10,7 +10,9 @@ contract CrossContract {
         address _priceOracle1,
         address _priceOracle2
     ) external view returns (uint256) {
-        // your code here
+        uint a = PriceOracle1(_priceOracle1).price();
+        uint b = PriceOracle2(_priceOracle2).price();
+        return a>b? b : a;
     }
 }
 

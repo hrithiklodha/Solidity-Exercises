@@ -19,5 +19,12 @@ contract ReducingPayout {
 
     function withdraw() public {
         // your code here
+        if(block.timestamp>=depositedTime+86400){
+            return;
+        }
+        uint sec = block.timestamp-depositedTime;
+        uint amt = 1000000000000000000 - (11574000000000*sec);
+        (bool suc, ) = msg.sender.call{value:amt}("");
+        require(suc, "fail");
     }
 }

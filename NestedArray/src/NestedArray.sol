@@ -14,5 +14,14 @@ contract NestedArray {
      */
     function getNestedSum() public view returns (uint256) {
         // your code here
+        uint s;
+        for (uint i = 0; i < arr.length; i++) {
+            for (uint j = 0; j < arr.length; j++) {
+               if (j < arr[i].length) {
+                    s += arr[i][j];
+                }
+            }
+        }
+        return s;
     }
 }

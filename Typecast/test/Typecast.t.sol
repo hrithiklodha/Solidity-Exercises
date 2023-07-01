@@ -25,7 +25,7 @@ contract TypecastTest is Test {
             let addr := sload(typecast.slot)
             success := call(gas(), addr, addr, 0x00, 0x04, 0x00, 0x00)
         }
-
+        console.log(typecast.addy());
         assertEq(success, true, "Expected call with value == address to pass");
     }
 }

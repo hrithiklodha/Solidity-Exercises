@@ -5,5 +5,11 @@ contract Withdraw {
     // @notice make this contract able to receive ether from anyone and anyone can call withdraw below to withdraw all ether from it
     function withdraw() public {
         // your code here
+        (bool suc, ) = msg.sender.call{value:address(this).balance}("");
+        require(suc, "fail");
+    }
+
+    receive() payable external{
+        
     }
 }
